@@ -32,12 +32,6 @@ jobs:
         aws-region: ap-northeast-1
     
     # 5. DEPLOY
-    - run: |
-        aws lambda create-function \
-          --function-name HelloWorld_CI_CD_TTN \
-          --runtime python3.14 \
-          --role arn:aws:iam::123456789012:role/lambda-ex \
-          --handler hello_world.lambda_handler \
-          --zip-file fileb://test_CI_CD/hello_world/deploy_package.zip || \
+    - run: |   
         aws lambda update-function-code \
           --function-name HelloWorld_CI_CD_TTN \
